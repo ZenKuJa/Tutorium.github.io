@@ -18,7 +18,7 @@ async function loadComponent(url, targetId) {
   }
   
   document.addEventListener('DOMContentLoaded', () => {
-    loadComponent('/components/footer', 'footer-container');
-    loadComponent('/components/navbar' , 'navbar-container');
-    loadComponent('/components/header', 'header-container');
+    loadComponent('/TutoriumTesting.github.io/components/footer.html', 'footer-container');
+    loadComponent('/TutoriumTesting.github.io/components/navbar.html' , 'navbar-container');
+    loadComponent('/TutoriumTesting.github.io/components/header.html', 'header-container');
   });
