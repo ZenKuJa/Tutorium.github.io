@@ -14,6 +14,56 @@
             text-align: center;
         }
 
+        h2 {
+            font-size: xx-large;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Float four columns side by side */
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px 10px;
+        }
+
+        /* Remove extra left and right margins, due to padding */
+        .row {
+            margin: 0 -5px;
+            padding: 1% 1%;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive columns */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Style the counter cards */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 16px;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+
+        .column a {
+            text-decoration: none;
+            color: black
+        }
+
     </style>
 </head>
 <body>
@@ -21,8 +71,70 @@
     <div id="navbar-container"></div>
 
     <div class="content">
-        <h1>Präsentationen</h1>
-        <p>Hello World</p>
+        <h2>Präsentationen</h2>
+        <p>Hier findet ihr die HTML-Präsentation, die wir im Tutorium verwendet haben.</p>
+
+        <div class="row">
+            <div class="column">
+                <a href="docs/Skript1.html"> 
+                    <div class="card">
+                        <h3>Termin 1</h3>
+                        <p class="description">Intro, Algorithmen, Rekursion</p>
+                        <p class="date">28.04.2025</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="column">
+                <a href="docs/Skript2.html"> 
+                    <div class="card">
+                        <h3>Termin 2</h3>
+                        <p class="description">...</p>
+                        <p class="date">15.05.2025</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="column">
+                <a href="docs/Skript3.html"> 
+                    <div class="card">
+                        <h3>Termin 3</h3>
+                        <p class="description">...</p>
+                        <p class="date">20.05.2025</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="column">
+                <a href="docs/Skript4.html"> 
+                    <div class="card">
+                        <h3>Termin 4</h3>
+                        <p class="description">...</p>
+                        <p class="date">26.05.2025</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="column">
+                <a href="docs/Skript5.html"> 
+                    <div class="card">
+                        <h3>Termin 5</h3>
+                        <p class="description">...</p>
+                        <p class="date">28.05.2025</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="column">
+                <a href="docs/Skript4.html"> 
+                    <div class="card">
+                        <h3>Termin 6</h3>
+                        <p class="description">...</p>
+                        <p class="date">06.06.2025</p>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 
     <div id ="footer-container"></div>
