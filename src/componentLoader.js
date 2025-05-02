@@ -1,4 +1,12 @@
 async function loadComponent(url, targetId) {
+
+  let hostName = console.log(window.location.hostname);
+  if (hostName.incudes("localhost")){
+    console.log("localHost");
+  } else if (hostName.includes("zenkuja.github.io/TutoriumTesting.github.io")){
+    console.log("GitHub");
+  }
+
     try {
       const response = await fetch(url);
       if (!response.ok) {
