@@ -1,7 +1,7 @@
 async function loadComponent(url, targetId) {
 
-  let hostName = console.log(window.location.hostname);
-  if (hostName.incudes("localhost")){
+  let hostName = window.location.href;
+  if (hostName.includes("localhost")){
     console.log("localHost");
   } else if (hostName.includes("zenkuja.github.io/TutoriumTesting.github.io")){
     console.log("GitHub");
