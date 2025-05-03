@@ -22,10 +22,8 @@ async function loadComponent(url, targetId) {
 async function updateBaseTag() {
   let hostName = window.location.href;
   if (hostName.includes("localhost")){
-    console.log("localHost");
     document.head.innerHTML = document.head.innerHTML + "<base href=\"http://localhost:8000/\">"
   } else if (hostName.includes("zenkuja.github.io/TutoriumTesting.github.io")){
-    console.log("GitHub");
     document.head.innerHTML = document.head.innerHTML + "<base href=\"https://zenkuja.github.io/TutoriumTesting.github.io/\">"
   }
 }
