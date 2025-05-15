@@ -2,6 +2,7 @@ async function loadComponent(url, targetId) {
 
   try {
     const response = await fetch(url);
+    console.log(url);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -23,14 +24,17 @@ async function updateBaseTag() {
   let hostName = window.location.href;
   if (hostName.includes("localhost")){
     document.head.innerHTML = document.head.innerHTML + "<base href=\"http://localhost:8000/\">"
+    loadComponent('components/footer.html', 'footer-container');
+    loadComponent('components/navbar.html' , 'navbar-container');
+    loadComponent('components/header.html', 'header-container');
   } else if (hostName.includes("zenkuja.github.io/TutoriumTesting.github.io")){
     document.head.innerHTML = document.head.innerHTML + "<base href=\"https://zenkuja.github.io/Tutorium.github.io/\">"
+    loadComponent('https://zenkuja.github.io/Tutorium.github.io/components/footer.html', 'footer-container');
+    loadComponent('https://zenkuja.github.io/Tutorium.github.io/components/navbar.html' , 'navbar-container');
+    loadComponent('https://zenkuja.github.io/Tutorium.github.io/components/header.html', 'header-container');
   }
 }
   
 document.addEventListener('DOMContentLoaded', () => {
     updateBaseTag();
-    loadComponent('components/footer.html', 'footer-container');
-    loadComponent('components/navbar.html' , 'navbar-container');
-    loadComponent('components/header.html', 'header-container');
   });
