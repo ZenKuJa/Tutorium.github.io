@@ -24,7 +24,7 @@ async function updateBaseTag() {
   if (hostName.includes("localhost")){
     document.head.innerHTML = document.head.innerHTML + "<base href=\"http://localhost:8000/\">"
   } else if (hostName.includes("zenkuja.github.io/TutoriumTesting.github.io")){
-    document.head.innerHTML = document.head.innerHTML + "<base href=\"https://zenkuja.github.io/TutoriumTesting.github.io/\">"
+    document.head.innerHTML = document.head.innerHTML + "<base href=\"https://zenkuja.github.io/Tutorium.github.io/\">"
   }
 }
   
