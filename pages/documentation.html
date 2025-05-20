@@ -5,19 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="../src/componentLoader.js"></script>
+    <link rel="stylesheet" href="../src/highlight/styles/atom-one-light.min.css">
+    <script src="../src/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+        <!-- highlightjs-copy -->
+    <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"
+    />
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
         }
 
         .page_content {
-            text-align: center;
             display: flex;
-        }
-
-        * {
-            box-sizing: border-box;
-
+            text-align: center;
+            justify-items: center;
         }
 
         /* Style the tab */
@@ -60,7 +66,35 @@
             border-left: none;
             height: auto;
             flex-grow: 1;
+            display: flex;
+            justify-content: center;
         }
+
+        .ul-div{
+            display: flex;
+            justify-content: center;
+        }
+
+        ul{
+            justify-content: center;
+            flex-direction: column; 
+        }
+
+        li{
+            text-align: left;
+        }
+
+        .code_block{
+            display: flex;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .code_block code{
+            background-color: rgb(228, 228, 228);
+        }
+
+
     </style>
 </head>
 <body>
@@ -69,14 +103,32 @@
 
     <div class="page_content">
         <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'GitHub')" id="defaultOpen">GitHub</button>
-            <button class="tablinks" onclick="openCity(event, 'Recursion')">Recursion</button>
-            <button class="tablinks" onclick="openCity(event, 'BubbleSort')">BubbleSort</button>
+            <button class="tablinks" onclick="openTab(event, 'Exceptions')" id="defaultOpen">Exceptions</button>
+            <button class="tablinks" onclick="openTab(event, 'Recursion')">Recursion</button>
+            <button class="tablinks" onclick="openTab(event, 'BubbleSort')">BubbleSort</button>
+            <button class="tablinks" onclick="openTab(event, 'BubbleSort')">BubbleSort</button>
         </div>
 
-        <div id="GitHub" class="tabcontent">
-            <h3>GitHub</h3>
-            <p>Lovely piece of software for version controll.</p>
+        <div id="Exceptions" class="tabcontent">
+            <h3>Exceptions</h3>
+            <div class="ul-div">
+                <ul>
+                    <li>Fehler die während der Laufzeit auftreten</li>
+                    <li>Dienen zur Kommunikation</li>
+                    <li>Manuelles auslösen über throw</li>
+                    <li>Abfangen über catch</li>
+                    <li>Exceptions sind Klassen/ Objekte</li>
+                </ul>
+            </div>
+     
+            
+            <div class = "code_block">
+                <pre><code class="language-java">public static void checkAge(int age) throws Exception {
+    if(age < 18) {
+        throw new Exception("You're to young");
+    }
+}</code></pre>
+            </div>
         </div>
 
         <div id="Recursion" class="tabcontent">
@@ -93,7 +145,7 @@
     <div id ="footer-container"></div>
 
     <script>
-        function openCity(evt, cityName) {
+        function openTab(evt, cityName) {
           var i, tabcontent, tablinks;
           tabcontent = document.getElementsByClassName("tabcontent");
           for (i = 0; i < tabcontent.length; i++) {
@@ -109,6 +161,49 @@
         
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
+    </script>
+        <script>
+      hljs.debugMode();
+      hljs.addPlugin(
+        new CopyButtonPlugin({
+          hook: (text, el) => {
+            if (el.dataset.copyright) {
+              return `${text}\n\n${el.dataset.copyright}`;
+            }
+            if (el.dataset.highlight) {
+              el.style.filter = "saturate(5)";
+            }
+            if (el.dataset.replace) {
+              return text
+                .replace("{{name}}", "Alexander Graham Bell")
+                .replace("{{dog}}", "Platypus");
+            }
+            return text;
+          },
+          callback: (text, el) => {
+            updateHistory({ el, text, ts: new Date() });
+          },
+        })
+      );
+      hljs.highlightAll();
+    </script>
+    <script>
+      const pasteBox = document.getElementById("pastebox");
+      const history = document.getElementById("history");
+
+      function updateHistory(data) {
+        let details = document.createElement("details");
+        details.open = true;
+        let summary = document.createElement("summary");
+        summary.innerText = `New copy event`;
+        let text = Object.assign(document.createElement("pre"), {
+          className: "log-item p-1",
+          innerText: `${data.text}`,
+        });
+        details.appendChild(summary);
+        details.appendChild(text);
+        history.prepend(details);
+      }
     </script>
 </body>
 </html>

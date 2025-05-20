@@ -5,13 +5,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="../src/componentLoader.js"></script>
+    <link rel="stylesheet" href="../src/highlight/styles/atom-one-light.min.css">
+    <script src="../src/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- highlightjs-copy -->
+    <script src="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/highlightjs-copy/dist/highlightjs-copy.min.css"
+    />
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        .content {
+        .page_content {
+            display: flex;
             text-align: center;
+            justify-items: center;
+        }
+
+        /* Style the tab */
+        .tab {
+            float: left;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            display: block;
+            background-color: inherit;
+            color: black;
+            padding: 22px 16px;
+            width: 100%;
+            border: none;
+            outline: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current "tab button" class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            float: left;
+            padding:  12px;
+            border: 1px solid #ccc;
+            width: auto;
+            border-left: none;
+            height: auto;
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .ul-div{
+            display: flex;
+            justify-content: center;
+        }
+
+        ul, ol{
+            justify-content: center;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        li {
+            text-align: left;
+        }
+
+        .code_block{
+            display: flex;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .code_block code{
+            background-color: rgb(228, 228, 228);
         }
 
     </style>
@@ -20,11 +101,380 @@
     <div id="header-container"></div>
     <div id="navbar-container"></div>
 
-    <div class="content">
-        <h1>Übungen</h1>
-        <p>Hello World</p>
+    <div class="page_content">
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'UebungsRepository')" id="defaultOpen">Übungs Repository</button>
+            <button class="tablinks" onclick="openTab(event, 'Exception')">Exceptions</button>
+            <button class="tablinks" onclick="openTab(event, 'Generics')">Generics</button>
+            <button class="tablinks" onclick="openTab(event, 'Optionals')">Optionals</button>
+            <button class="tablinks" onclick="openTab(event, 'Recursion')">Recursion</button>
+            <button class="tablinks" onclick="openTab(event, 'BubbleSort')">BubbleSort</button>
+            <button class="tablinks" onclick="openTab(event, 'BubbleSort')">BubbleSort</button>
+            <button class="tablinks" onclick="openTab(event, 'BubbleSort')">BubbleSort</button>
+        </div>
+
+        <div id="UebungsRepository" class="tabcontent">
+            <h3>Übungs repository</h3>
+            <div class="ul-div">
+                <ol>
+                    <li>
+                        <div class = "code_block">
+                            <pre><code class="language-bash">git clone https://github.com/ZenKuJa/Programmierung2Tutorium.git</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <div class = "code_block">
+                            <pre><code class="language-bash">git checkout exercise/[topic]</code></pre>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="Exception" class="tabcontent">
+            <h3>Exceptions</h3>
+            <div class = "code_block">
+                <pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+
+        // Exercise 1:
+        validateAge(16);
+
+        // Exercise 2:
+        validatePassword("123");
+
+        // Exercise 3:
+        processTransaction(-20, "CHF");
+    }
+
+    // EXERCISE 1:
+        // Create the InvalidAgeException
+        // Create the function that throws the InvalidAgeException, if the age is below 18
+            // Exception message should print an error text
+            // If it is valid, the age should be printed to terminal
+        // Add try/catch statement to main function
+    // Test with different usernames
+
+    public static void validateAge(int age) {
+
+    }
+
+
+    // EXERCISE 2:
+        // Create the InvalidPasswordException
+        // Create the validatePassword function that checks a password length
+            // If length is < 5 letters it should throw the exception
+            // Else it should print "password set to xxx"
+        // Add the function call to the same try block and add a second catch block for catching
+        // the InvalidPasswordException
+    // Test with different passwords
+
+    public static void validatePassword(String password) {
+
+    }
+
+
+    // EXERCISE 3:
+        // Create the InvalidTransaction function
+        // Create the processTransaction function, that takes an amount and a currency
+            // If the amount is negative, throw InvalidTransaction with message:
+                // "Transaction amount must be positive."
+            // If the currency is NOT "USD" or "EUR", the Exception message should be:
+                // "Unsupported currency: " + currency
+            // If amount and currency are valid, a success message should be printed to the terminal.
+        // Add the function call to the try/catch block
+    // Test with different amounts and currencies
+
+    public static void processTransaction(double amount, String currency) {
+
+    }
+}</code></pre>
+            </div>
+            <div class = "code_block">
+                <pre><code class="language-bash">git checkout exercise/exceptions</code></pre>
+            </div>
+            <p>
+            </p>
+        </div>
+
+        <div id="Generics" class="tabcontent">
+            <h3>Generics</h3>
+            <div class = "code_block">
+                <pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+
+        // EXERCISE 1:
+        // Use printArray with different data types
+        printArray(new Integer[]{1, 2, 3});
+        printArray(new String[]{"A", "B", "C"});
+
+        // EXERCISE 2:
+        // Create a generic class Pair and instantiate it with different types
+        Pair<String, Integer> studentAge = new Pair<>("Alice", 21);
+        studentAge.printPair();
+
+        Pair<Double, Boolean> data = new Pair<>(99.5, true);
+        data.printPair();
+
+        // EXERCISE 3:
+            // Use compareValues method to compare two values
+            // Can compare Integers, Doubles, Strings...
+        System.out.println(compareValues(10, 10));        // should print true
+        System.out.println(compareValues(5.5, 7.5));        // false
+        System.out.println(compareValues("abc", "abc"));  // true
+    }
+
+    // EXERCISE 1:
+    // Create a generic method called printArray that accepts an array of any type
+    // Loop through the array and print each element
+    // Call the method from main with different array types
+
+    public static void printArray() {
+
+    }
+
+    // EXERCISE 2:
+    // Create a generic class Pair with two type parameters T and U
+    // Add two private attributes of types T and U, called "key" and "value"
+    // Constructor should initialize these attributes
+    // Add a method printPair to the Pair class that prints it's key and value
+    // Initialize two Pairs with different attribute types (e.g. String, Integer, Double...)
+    // Print its values using the printPair function on each pair
+
+
+
+
+    // EXERCISE 3:
+    // Create a generic method compareValues that checks if two values are equal
+    // It should accept two parameters of the same generic type (T a, T b)
+    // Function should extend Comparable (T extends Comparable<T>) so generic values can be compared
+    // Return true if values are equal, otherwise false
+    // The function now should be able to compare two values of the same generic type for different types
+
+    public static boolean compareValues() {
+
+    }
+}</code></pre>
+            </div>
+            <div class = "code_block">
+                <pre><code class="language-bash">git checkout exercise/generics</code></pre>
+            </div>
+        </div>
+
+        <div id="Optionals" class="tabcontent">
+            <h3>Optionals</h3>
+            <div class = "code_block">
+                <pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+
+        // EXERCISE 1:
+        // Test with a null value
+        printUsername(null);
+        printUsername("Tom");
+
+        // EXERCISE 2:
+        // Use Optional.of with a non-null value
+        getLength("Hello");
+        getLength(null); // Should raise NullPointerException
+
+        // EXERCISE 3:
+        // Test with present and empty optionals
+        printEmail(Optional.of("user@example.com"));
+        printEmail(Optional.empty());
+    }
+
+    // EXERCISE 1:
+    // Create a function printUsername that takes a String (can be null)
+    // Use Optional.ofNullable to wrap it
+    // If present, print "Username: xxx", otherwise print "No username provided"
+    public static void printUsername(String username) {
+
+    }
+
+    // EXERCISE 2:
+    // Create a function getLength that takes a non-null String
+    // Use Optional.of to wrap it (note: this will throw an exception if null)
+    // If present, print the length of the string
+    // Use ifPresent to check
+    public static void getLength(String value) {
+
+    }
+
+    // EXERCISE 3:
+    // Create a function printEmail that takes an Optional<String> optionalEmail as parameter
+    // Use ifPresentOrElse to either:
+    // - Print "Email: xxx" if value is present
+    // - Or print "No email found" if value is empty
+    public static void printEmail() {
+    }
+}</code></pre>
+            </div>
+            <div class = "code_block">
+                <pre><code class="language-bash">git checkout exercise/optionals</code></pre>
+            </div>
+        </div>
+
+        <div id="Recursion" class="tabcontent">
+            <h3>Recursion</h3>
+            <div class = "code_block">
+                <pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+
+        // Exercise 1:
+        factorial(16);
+
+        // Exercise 2:
+        fibonacci(10);
+
+        // Exercise 3:
+        istPalindrom("Reliefpfeiler");
+    }
+
+    /** EXERCISE 1: Fakultaet
+     * Schreiben Sie eine rekursive Java-Methode namens `fakultaet`, die die Fakultät
+     * einer gegebenen nicht-negativen ganzen Zahl `n` berechnet.
+     *
+     * Hinweis: Die Fakultät von `n` (geschrieben als n!) ist das Produkt aller
+     * positiven ganzen Zahlen kleiner oder gleich `n`. Zum Beispiel ist 5! = 5 * 4 * 3 * 2 * 1 = 120.
+     * Die Fakultät von 0 ist per Definition 1.
+      */
+    public static int factorial(int num) {
+
+        return 0;
+    }
+
+    /**
+     * EXERCISE 2: Fibonacci-Folge
+     * Schreiben Sie eine rekursive Java-Methode namens `fibonacci`, die das n-te
+     * Element der Fibonacci-Folge berechnet.
+     *
+     * Hinweis: Die Fibonacci-Folge beginnt mit 0 und 1, und jedes nachfolgende
+     * Element ist die Summe der beiden vorhergehenden. Die Folge beginnt also so:
+     * 0, 1, 1, 2, 3, 5, 8, 13, ...
+     *
+     * Rekursionsbasis: Was sind die ersten beiden Elemente der Folge, die Sie direkt zurückgeben können?
+     * Rekursiver Schritt: Wie können Sie das n-te Fibonacci-Element mithilfe der vorherigen Elemente berechnen?
+     */
+
+    public static int fibonacci(int num) {
+
+        return 0;
+    }
+
+    /**
+     * EXERCISE 3: Palindrom-Prüfung
+     * Schreiben Sie eine rekursive Java-Methode namens `istPalindrom`, die überprüft,
+     * ob eine gegebene Zeichenkette ein Palindrom ist oder nicht. Ein Palindrom ist
+     * eine Zeichenkette, die vorwärts und rückwärts gelesen gleich ist (z.B. "racecar", "level").
+     *
+     * Hinweis: Achten Sie darauf, Groß- und Kleinschreibung zu ignorieren und eventuelle
+     * Leerzeichen oder Satzzeichen zu entfernen, bevor Sie die Palindrom-Prüfung durchführen
+     * (optional, aber macht die Aufgabe interessanter). Konzentrieren Sie sich aber zunächst
+     * auf die reine Rekursion der Zeichenkette selbst.
+     *
+     * Rekursionsbasis: Wann ist eine Zeichenkette definitiv ein Palindrom oder definitiv keins?
+     * Rekursiver Schritt: Wie können Sie die Palindrom-Eigenschaft einer Zeichenkette auf die
+     * Palindrom-Eigenschaft einer kleineren Zeichenkette reduzieren?
+     */
+
+    public static boolean istPalindrom(String text) {
+
+        return false;
+    }
+}</code></pre>
+            </div>
+            <div class = "code_block">
+                <pre><code class="language-bash">git checkout exercise/recursion</code></pre>
+            </div>
+        </div>
+
+        <div id="Generics" class="tabcontent">
+            <h3>Generics</h3>
+            <div class = "code_block">
+                <pre><code class="language-java">
+
+                </code></pre>
+            </div>
+            <div class = "code_block">
+                <pre><code class="language-bash">git checkout exercise/optionals</code></pre>
+            </div>
+        </div>
+
+        <div id="Generics" class="tabcontent">
+            <h3>Generics</h3>
+            <div class = "code_block">
+                <pre><code class="language-java">
+
+                </code></pre>
+            </div>
+            <div class = "code_block">
+                <pre><code class="language-bash">git checkout exercise/optionals</code></pre>
+            </div>
+        </div>
     </div>
 
     <div id ="footer-container"></div>
+
+    <script>
+        function openTab(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+        
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+        <script>
+      hljs.debugMode();
+      hljs.addPlugin(
+        new CopyButtonPlugin({
+          hook: (text, el) => {
+            if (el.dataset.copyright) {
+              return `${text}\n\n${el.dataset.copyright}`;
+            }
+            if (el.dataset.highlight) {
+              el.style.filter = "saturate(5)";
+            }
+            if (el.dataset.replace) {
+              return text
+                .replace("{{name}}", "Alexander Graham Bell")
+                .replace("{{dog}}", "Platypus");
+            }
+            return text;
+          },
+          callback: (text, el) => {
+            updateHistory({ el, text, ts: new Date() });
+          },
+        })
+      );
+      hljs.highlightAll();
+    </script>
+    <script>
+      const pasteBox = document.getElementById("pastebox");
+      const history = document.getElementById("history");
+
+      function updateHistory(data) {
+        let details = document.createElement("details");
+        details.open = true;
+        let summary = document.createElement("summary");
+        summary.innerText = `New copy event`;
+        let text = Object.assign(document.createElement("pre"), {
+          className: "log-item p-1",
+          innerText: `${data.text}`,
+        });
+        details.appendChild(summary);
+        details.appendChild(text);
+        history.prepend(details);
+      }
+    </script>
 </body>
 </html>
