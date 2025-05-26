@@ -1,5 +1,5 @@
 ---
-title: Optionals
+title: Search
 parent: Übungen
 nav_order: 4
 layout: default
@@ -110,5 +110,5 @@ public class Exercise {
 
 ## Git Branch
 ```console
-git checkout exercise/optionals
+git checkout exercise/search
 ```
