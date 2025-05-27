@@ -7,7 +7,7 @@ layout: default
 # 1. Termin
 * 28.04.2025
 
-[Skript]({{site.baseurl}}{% link presentations/Skript1.html%})
+[Skript]({% link presentations/Skript1.html%})
 
 # 2. Termin
 
