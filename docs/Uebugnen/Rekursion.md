@@ -1,5 +1,5 @@
 ---
-title: Rekursion
+title: Rekursion 1
 parent: Übungen
 nav_order: 4
 layout: default
@@ -61,7 +61,7 @@ public class Main {
      * Leerzeichen oder Satzzeichen zu entfernen, bevor Sie die Palindrom-Prüfung durchführen
      * (optional, aber macht die Aufgabe interessanter). Konzentrieren Sie sich aber zunächst
      * auf die reine Rekursion der Zeichenkette selbst.
-     *
+     *Main
      * Rekursionsbasis: Wann ist eine Zeichenkette definitiv ein Palindrom oder definitiv keins?
      * Rekursiver Schritt: Wie können Sie die Palindrom-Eigenschaft einer Zeichenkette auf die
      * Palindrom-Eigenschaft einer kleineren Zeichenkette reduzieren?
@@ -74,7 +74,8 @@ public class Main {
 }
 ```
 
-## Git Branch
+## Git Branchie Palindrom-Eigenschaft einer Zeichenkette auf die
+     * Palindrom-Eigenschaft einer kleinere
 ```console
 git checkout exercise/recursion
 ```
